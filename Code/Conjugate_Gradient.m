@@ -3,10 +3,10 @@ clear;
 
 x0=[0,0]';
 t0=cputime;
-[x,val,count]=CG("Rosenbrock",x0,6)
+[x,val]=CG("Rosenbrock",x0,6,5000)
 t1=cputime-t0
 
-function [x,val,count]=CG(fun,x0,K)
+function [x,val,count]=CG(fun,x0,K,max_step)
     %K:最多迭代次数
     %求fun的导数
     X=sym('x_',[1 length(x0)]);
@@ -14,7 +14,7 @@ function [x,val,count]=CG(fun,x0,K)
     
     x=x0;
     count=1;
-    while count<5000
+    while count<max_step
         count=count+1;
         x
         gk=double(subs(df,X,x'));

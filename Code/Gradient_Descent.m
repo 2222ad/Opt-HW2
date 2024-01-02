@@ -2,7 +2,7 @@ clc;
 clear;
 x0=[-2,2]';
 t0=cputime;
-[x,val,k]=GD("fun",x0)
+[x,val, ]=GD("fun",x0)
 t1=cputime-t0
 
 function [x,val,k]=GD(fun,x0)
